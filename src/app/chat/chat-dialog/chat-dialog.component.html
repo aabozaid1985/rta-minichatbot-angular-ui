@@ -1,0 +1,17 @@
+<h1>RTA - Weather Chatbot</h1>
+
+<ng-container *ngFor="let message of messages | async">
+
+  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                    'to':   message.sentBy === 'user' }">
+    {{ message.content }}
+  </div>
+
+</ng-container>
+
+<label for="nameField">Your Message</label>
+
+<input style="border-color: #2095FE;" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text"><br>
+
+<button style="background-color:#2095FE ; border:none;" (click)="sendMessage()">Send</button>
+
